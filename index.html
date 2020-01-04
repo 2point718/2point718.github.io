@@ -15,20 +15,19 @@
 p {
   font-family:Arial, Helvetica, sans-serif
 }
-#terminal_text,#terminal,#terminal_text_output {
+#terminal_text,#terminal,#terminal_text_output,#blink_cursor {
     color:#00FF00;
     font-family:monospace;
     font-size:12pt;
 }
-#terminal:focus { outline:none;}	 
+#terminal:focus { outline:none;}
+#blink_cursor { animation: blinker 1s linear infinite; }
+@keyframes blinker {  50% {    opacity: 0;  }}	 
  </style>
  <script>
   function execCmd() {
 	var cmd = document.getElementById('terminal').value;
 	document.getElementById('terminal').value='';
-  }
-  function onLoad() {
-	document.getElementById('terminal').focus();
   }
  </script>	
 </head>
@@ -49,8 +48,11 @@ p {
 	 </div>
 	<div style="padding:10px;">
 		<div>
-			<span id="terminal_text">~$ </span>
-			<input type="text" style="background:none;border:0;" id="terminal" onkeyup = "if(event.keyCode == 13){execCmd();}" autofocus/>
+			<span id="terminal_text">~$&nbsp;</span><span id="blink_cursor">|</span>
+			<input type="text" style="background:none;border:0;"
+			       onfocus="document.getElementById('terminal').style.visibility='hidden'"
+			       onblur="document.getElementById('terminal').style.visibility='visible'"
+			       id="terminal" onkeyup = "if(event.keyCode == 13){execCmd();}"/>
 		</div>
 		<div><span id="terminal_text_output"></span></div>
 	</div>
