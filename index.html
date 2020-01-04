@@ -46,12 +46,12 @@ p {
 		 <img alt="github" src="https://github.com/favicon.ico" width="16" height="16">
 	      </a>
 	 </div>
-	<div style="padding:10px;">
+	<div style="padding:10px;" onclick="document.getElementById('terminal').focus()">
 		<div>
 			<span id="terminal_text">~$&nbsp;</span><span id="blink_cursor">|</span>
 			<input type="text" style="background:none;border:0;"
-			       onfocus="document.getElementById('terminal').style.visibility='hidden'"
-			       onblur="document.getElementById('terminal').style.visibility='visible'"
+			       onfocus="document.getElementById('blink_cursor').style.visibility='hidden'"
+			       onblur="document.getElementById('blink_cursor').style.visibility='visible'"
 			       id="terminal" onkeyup = "if(event.keyCode == 13){execCmd();}"/>
 		</div>
 		<div><span id="terminal_text_output"></span></div>
