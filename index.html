@@ -15,7 +15,7 @@
 p {
   font-family:Arial, Helvetica, sans-serif
 }
-#terminal_text,#terminal,#terminal_text_output,#blink_cursor {
+.green_text {
     color:#00FF00;
     font-family:monospace;
     font-size:12pt;
@@ -29,9 +29,19 @@ p {
 	var cmd = document.getElementById('terminal').value;
 	document.getElementById('terminal').value='';
   }
+  function setPageTime() {
+  	document.getElementById('usertime').innerHTML = new Date().toString();
+  }
+  function initPage() {	
+     setInterval(setPageTime, 1000);
+  }
+  function initControls() {
+	document.getElementById('terminal').focus();	  
+  }
  </script>	
 </head>
-<body style="width:100%;height:100%;margin:0;padding:0;background-image:url('background.jpg');background-size:cover;">
+<body style="width:100%;height:100%;margin:0;padding:0;background-image:url('background.jpg');background-size:cover;"
+      onload="initControls()" onclick="initPage();initControls()">
   <div class="parent">  
 	<div align="right" style="padding:10px;">
 	      <a href="https://www.linkedin.com/in/renjithmathew" style="text-decoration:none;">
@@ -46,20 +56,24 @@ p {
 		 <img alt="github" src="https://github.com/favicon.ico" width="16" height="16">
 	      </a>
 	 </div>
-	<div style="padding:10px;" onclick="document.getElementById('terminal').focus()">
+	<div style="padding:10px;" onclick="initControls()">
 		<div>
-			<span id="terminal_text">~$&nbsp;</span><span id="blink_cursor">|</span>
-			<input type="text" style="background:none;border:0;"
+			<span id="terminal_text" class="green_text">~$&nbsp;</span>
+			<span id="blink_cursor" class="green_text">|</span>
+			<input type="text"  class="green_text" style="background:none;border:0;"
 			       onfocus="document.getElementById('blink_cursor').style.visibility='hidden'"
 			       onblur="document.getElementById('blink_cursor').style.visibility='visible'"
 			       id="terminal" onkeyup = "if(event.keyCode == 13){execCmd();}"/>
 		</div>
-		<div><span id="terminal_text_output"></span></div>
+		<div><span id="terminal_text_output" class="green_text"></span></div>
 	</div>
 	<div class="child">
 	  <p style="text-align:center;font-size:18pt;"></p>
 	  <p style="text-align:center;font-size:10pt;"></p>
 	</div>
+	<div align="right" style="padding:10px;position:absolute;bottom:0;right:0;">
+        	<span id="usertime" class="green_text"></span>
+        </div>	  
   </div>  
 </body>
 </html>
