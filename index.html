@@ -61,8 +61,8 @@ p {
 			<span id="terminal_text" class="green_text">~$&nbsp;</span>
 			<span id="blink_cursor" class="green_text">|</span>
 			<input type="text"  class="green_text" style="background:none;border:0;"
-			       onfocus="document.getElementById('blink_cursor').style.visibility='hidden'"
-			       onblur="document.getElementById('blink_cursor').style.visibility='visible'"
+			       onfocus="document.getElementById('blink_cursor').style.display='none'"
+			       onblur="document.getElementById('blink_cursor').style.display='inline'"
 			       id="terminal" onkeyup = "if(event.keyCode == 13){execCmd();}"/>
 		</div>
 		<div><span id="terminal_text_output" class="green_text"></span></div>
