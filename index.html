@@ -23,6 +23,7 @@ p {
 #terminal:focus { outline:none;}
 #blink_cursor { animation: blinker 1s linear infinite; }
 @keyframes blinker {  50% {    opacity: 0;  }}	 
+#site_links>a>img:hover {box-shadow: 0 4px 8px 0 #00FF00, 0 6px 20px 0 #00FF00;}
  </style>
  <script>
   function execCmd() {
@@ -37,6 +38,9 @@ p {
   }
   function initControls() {
 	document.getElementById('terminal').focus();	  
+  }
+  function showMenu() {
+      
   }
  </script>	
 </head>
@@ -55,6 +59,10 @@ p {
 	       <a href="https://github.com/2point718/" style="text-decoration:none;" target="_blank">
 		 <img alt="github" src="https://github.com/favicon.ico" width="16" height="16">
 	      </a>
+	      &nbsp;
+	      <a href="#" style="text-decoration:none;" onclick="showMenu()">
+		 <img alt="menu_img" src="menu.png" width="16" height="16">
+	      </a>		
 	 </div>
 	<div style="padding:10px;" onclick="initControls()">
 		<div>
