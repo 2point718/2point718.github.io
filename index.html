@@ -1,20 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
+ <meta http-equiv="cache-control" content="no-cache" />
+ <meta http-equiv="pragma" content="no-cache" />
  <style>
-.parent {
-  position: relative;
-  width:100%;
-  height:100%
-}
-.child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-p {
-  font-family:Arial, Helvetica, sans-serif
-}
 .green_text {
     color:#00FF00;
     font-family:monospace;
@@ -30,16 +19,11 @@ p {
 	var cmd = document.getElementById('terminal').value;
 	document.getElementById('terminal').value='';
   }
-  function setPageTime() {
-  	document.getElementById('usertime').innerHTML = new Date().toString();
-  }
   function initPage() {	
-     //setInterval(setPageTime, 1000);
   }
   function initControls() {
 	document.getElementById('terminal').focus();	  
   }
-  function showMenu() {}
  </script>	
 </head>
 <body style="width:100%;height:100%;margin:0;padding:0;background-color:#333333;"
@@ -50,7 +34,7 @@ p {
 		 <img alt="github" src="gh.ico" width="16" height="16">
 	      </a>
 	      &nbsp;
-	      <a href="#" style="text-decoration:none;" onclick="showMenu()">
+	      <a href="https://app.renjithmathew.com/profile/" style="text-decoration:none;" target="_blank">
 		 <img alt="menu_img" src="menu.png" width="16" height="16">
 	      </a>		
 	 </div>
@@ -61,17 +45,9 @@ p {
 			<input type="text"  class="green_text" style="background:none;border:0;"
 			       onfocus="document.getElementById('blink_cursor').style.display='none'"
 			       onblur="document.getElementById('blink_cursor').style.display='inline'"
-			       id="terminal" onkeyup = "if(event.keyCode == 13){execCmd();}"/>
+			       id="terminal" onkeyup = "if(event.keyCode == 13){execCmd();}"  autofocus />
 		</div>
-		<div><span id="terminal_text_output" class="green_text"></span></div>
-	</div>
-	<div class="child">
-	  <p style="text-align:center;font-size:18pt;"></p>
-	  <p style="text-align:center;font-size:10pt;"></p>
-	</div>
-	<div align="right" style="padding:10px;position:absolute;bottom:0;right:0;">
-        	<span id="usertime" class="green_text"></span>
-        </div>	  
+	</div> 
   </div>  
 </body>
 </html>
